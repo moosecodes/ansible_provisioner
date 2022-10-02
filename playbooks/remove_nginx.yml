@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: remove nginx package
+    ansible.builtin.apt:
+      name: nginx
+      state: absent

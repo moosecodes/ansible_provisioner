@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    ansible.builtin.apt:
+      update_cache: yes
+
+  - name: remove nmap package
+    ansible.builtin.apt:
+      name: nmap
+      state: absent

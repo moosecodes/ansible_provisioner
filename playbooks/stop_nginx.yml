@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: stop nginx server
+    systemd:
+      name: nginx
+      state: stopped

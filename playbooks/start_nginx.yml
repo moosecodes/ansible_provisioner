@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: start nginx server
+    systemd:
+      name: nginx
+      state: started

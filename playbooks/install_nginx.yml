@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    ansible.builtin.apt:
+      update_cache: yes
+
+  - name: install nginx package
+    ansible.builtin.apt:
+      name: nginx
+      state: latest

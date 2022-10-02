@@ -5,4 +5,4 @@
   tasks:
 
   - name: ping machines
-    ping:
+    ansible.builtin.ping:
