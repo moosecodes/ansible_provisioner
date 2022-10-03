@@ -1,0 +1,13 @@
+---
+
+- hosts: "all"
+  become: yes
+  become_user: moose
+  tasks:
+
+  - name: get system temp
+    ansible.builtin.command: ~/code/systemTemp.py
+    register: systemTemp
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  - debug: msg="{{ systemTemp.stdout }}"
