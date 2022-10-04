@@ -1,8 +1,9 @@
-[rpis]
+
+[servers]
 maplepi
 maplepi2
 zeropi
 
-[macs]
+[workstations]
 007-laptop2019.lan
 007s-laptop.lan

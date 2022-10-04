@@ -1,0 +1,18 @@
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/patriot/code
+    state: directory
+    mode: '0755'
+
+- name: copy system temperature script
+  ansible.builtin.copy:
+    src:  systemTemp.py
+    dest: /home/patriot/code/systemTemp.py
+    owner: patriot
+
+- name: get system temp
+  ansible.builtin.command: python3 /home/patriot/code/systemTemp.py
+  register: systemTemp
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- debug: msg="{{ systemTemp.stdout }}"

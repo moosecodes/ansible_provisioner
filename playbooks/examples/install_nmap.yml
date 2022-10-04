@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install packages
+    package:
+      update_cache: yes
+      name:
+        - "{{ nmap_package }}"
+        - "{{ tree_package }}"
+      state: latest
+

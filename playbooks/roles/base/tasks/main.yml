@@ -1,0 +1,12 @@
+- name: install updates (Ubuntu)
+  tags: always
+  package:
+    updgrade: dist
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: create user (patriot)
+  tags: always
+  ansible.builtin.user:
+    name: patriot
+    groups: moose

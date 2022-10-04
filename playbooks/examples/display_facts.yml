@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: false
+  tasks:
+
+  - name: Show facts available on the system
+    ansible.builtin.debug:
+      var: ansible_facts
+    when: ansible_facts['nodename'] == "zeropi"

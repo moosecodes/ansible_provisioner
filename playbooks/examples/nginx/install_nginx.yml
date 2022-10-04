@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install nginx package
+    package:
+      name:
+        - nginx
+      state: latest
+      update_cache: yes
+
