@@ -9,4 +9,6 @@
   tags: always
   ansible.builtin.user:
     name: patriot
-    groups: moose
+    groups: root
+
+
