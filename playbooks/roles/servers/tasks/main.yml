@@ -1,6 +1,6 @@
 - name: create myTools/ directory if it does not exist
   ansible.builtin.file:
-    path: /home/patriot/myTools
+    path: /home/{{ username }}/myTools
     state: directory
     mode: '0755'
 
@@ -8,7 +8,7 @@
   ansible.builtin.copy:
     src:  systemTemp.py
     dest: /home/patriot/myTools/systemTemp.py
-    owner: patriot
+    owner: "{{ username }}"
 
 - name: get system temperature
   ansible.builtin.command: python3 /home/patriot/myTools/systemTemp.py

@@ -1,16 +1,21 @@
 ---
 
-- hosts: all
-  become: true
-  roles:
-    - base
+# - hosts: all
+#   become: true
+#   remote_user: moose
+#   roles:
+#     - base
 
-- hosts: servers
-  become: true
-  roles:
-    - servers
+# - hosts: servers
+#   become: true
+#   remote_user: moose
+#   roles:
+#     - servers
 
 - hosts: workstations
   become: true
+  remote_user: "{{ workstation_user_patriot }}"
   roles:
-    - workstations
+    - role: workstations
+      vars:
+        workstation_user_patriot: patriot
