@@ -1,9 +1,8 @@
-
 [servers]
-maplepi
-maplepi2
+maplepi3
+maplepi4
 zeropi
 
 [workstations]
-007-laptop2019.lan
-007s-laptop.lan
+mapleboxla
+chicagobox
