@@ -1,9 +1,9 @@
 ---
 
-- hosts: servers
-  become: true
+- hosts: workstations
+  become: false
   remote_user: "{{ user_moose }}"
   roles:
-    - role: servers
+    - role: workstations
       vars:
         user_moose: moose

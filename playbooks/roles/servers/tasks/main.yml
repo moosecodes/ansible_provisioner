@@ -7,11 +7,11 @@
 - name: copy system temperature script
   ansible.builtin.copy:
     src:  systemTemp.py
-    dest: /home/patriot/myTools/systemTemp.py
+    dest: /home/moose/myTools/systemTemp.py
     owner: "{{ username }}"
 
 - name: get system temperature
-  ansible.builtin.command: python3 /home/patriot/myTools/systemTemp.py
+  ansible.builtin.command: python3 /home/moose/myTools/systemTemp.py
   when: ansible_distribution in ["Debian", "Ubuntu"]
   register: systemTemp
 
