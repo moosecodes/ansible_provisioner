@@ -1,36 +1,9 @@
-- name: ping machines
-  ansible.builtin.ping:
-
-- community.general.homebrew:
-    name: nmap,wget,bat,tree,n,spectacle,romkatv/powerlevel10k/powerlevel10k,zsh
-    state: latest
-
-- name: Install formula foo with 'brew' from cask
+- name: install homebrew formulae
   community.general.homebrew:
-    name: homebrew/cask/phpstorm
-    state: latest
-
-- name: Install formula foo with 'brew' from cask
-  community.general.homebrew:
-    name: homebrew/cask/sublime-text
+    name: nmap,wget,bat,tree,n,zsh,romkatv/powerlevel10k/powerlevel10k
     state: present
 
-- name: Install formula foo with 'brew' from cask
-  community.general.homebrew:
-    name: homebrew/cask/google-chrome
-    state: present
-
-- name: Install formula foo with 'brew' from cask
-  community.general.homebrew:
-    name: homebrew/cask/iterm2
-    state: present
-
-- name: Install formula foo with 'brew' from cask
-  community.general.homebrew:
-    name: homebrew/cask/clipy
-    state: present
-
-- name: Install formula foo with 'brew' from cask
-  community.general.homebrew:
-    name: homebrew/cask/spotify
+- name: Install cask formulae
+  homebrew_cask:
+    name: phpstorm,spectacle,sublime-text,google-chrome,iterm2,clipy,spotify
     state: present
