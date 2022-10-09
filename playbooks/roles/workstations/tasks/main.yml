@@ -7,3 +7,11 @@
   homebrew_cask:
     name: phpstorm,spectacle,sublime-text,google-chrome,iterm2,clipy,spotify
     state: present
+
+- name: get system temperature
+  become: true
+  ansible.builtin.command: powermetrics --samplers smc --sample-count 1 | grep -i "CPU die temperature"
+  when: ansible_os_family in ["Darwin"]
+  register: systemTemp
+
+- debug: msg="{{ systemTemp.stdout }}"

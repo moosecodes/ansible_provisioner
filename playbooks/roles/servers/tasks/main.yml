@@ -3,12 +3,14 @@
     path: /home/{{ username }}/myTools
     state: directory
     mode: '0755'
+  when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - name: copy system temperature script
   ansible.builtin.copy:
     src:  systemTemp.py
     dest: /home/moose/myTools/systemTemp.py
     owner: "{{ username }}"
+  when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - name: get system temperature
   ansible.builtin.command: python3 /home/moose/myTools/systemTemp.py
