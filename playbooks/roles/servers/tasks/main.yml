@@ -12,7 +12,7 @@
 
 - name: get system temperature
   ansible.builtin.command: python3 /home/patriot/myTools/systemTemp.py
-  register: systemTemp
   when: ansible_distribution in ["Debian", "Ubuntu"]
+  register: systemTemp
 
 - debug: msg="{{ systemTemp.stdout }}"
