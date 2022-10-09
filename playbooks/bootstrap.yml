@@ -4,6 +4,6 @@
   become: true
   remote_user: "{{ user_moose }}"
   roles:
-    - role: workstations
+    - role: servers
       vars:
         user_moose: moose
