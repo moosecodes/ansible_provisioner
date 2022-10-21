@@ -1,12 +1,19 @@
-- name: install homebrew formulae
+- name: load variables
+  ansible.builtin.include_vars:
+    file: main.yml
+  when: ansible_os_family in ["Darwin"]
+
+- name: install Homebrew formulae
   community.general.homebrew:
     name: nmap,wget,bat,tree,n,zsh,romkatv/powerlevel10k/powerlevel10k
     state: present
+  when: ansible_os_family in ["Darwin"]
 
-- name: Install cask formulae
-  homebrew_cask:
+- name: Install Homebrew Cask formulae
+  community.general.homebrew_cask:
     name: phpstorm,spectacle,sublime-text,google-chrome,iterm2,clipy,spotify
     state: present
+  when: ansible_os_family in ["Darwin"]
 
 - name: get system temperature
   become: true
